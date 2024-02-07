@@ -3,12 +3,14 @@
 namespace Cravler\MaxMindGeoIpBundle\Service;
 
 use GeoIp2\Database\Reader;
+use GeoIp2\Model\City;
+use GeoIp2\Model\Country;
 use GeoIp2\WebService\Client;
-use GeoIp2\Model\AbstractModel;
 use Cravler\MaxMindGeoIpBundle\Exception\GeoIpException;
 
 /**
  * @author Sergei Vizel <sergei.vizel@gmail.com>
+ * @author Mike Kulakovsky <mike@kulakovs.ky>
  */
 class GeoIpService
 {
@@ -48,7 +50,7 @@ class GeoIpService
      *
      * @throws GeoIpException
      */
-    public function getReader(string $type = 'country', $locales = ['en']): Reader
+    public function getReader(string $type = 'country', array $locales = ['en']): Reader
     {
         $type = preg_replace_callback('/([A-Z])/', fn(array $matches): string => '_' . strtolower($matches[1]), $type);
 
@@ -64,14 +66,14 @@ class GeoIpService
      * @param string $type
      * @param array $options
      *
-     * @return AbstractModel
+     * @return City|Country|\JsonSerializable
      *
      * @throws GeoIpException
      */
-    public function getRecord(string $ipAddress = 'me', string $type = 'country', array $options = []): AbstractModel
+    public function getRecord(string $ipAddress = 'me', string $type = 'country', array $options = []): object
     {
-        $provider = isset($options['provider']) ? $options['provider'] : 'reader';
-        $locales = isset($options['locales']) ? $options['locales'] : ['en'];
+        $provider = $options['provider'] ?? 'reader';
+        $locales = $options['locales'] ?? ['en'];
 
         if ('client' == $provider) {
             $provider = $this->getClient($locales);

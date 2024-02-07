@@ -1,11 +1,16 @@
 # CravlerMaxMindGeoIpBundle
 
+NOTE: this is a fork of https://github.com/cravler/CravlerMaxMindGeoIpBundle
+Added:
+- support for Symfony 7
+- support for [geoip2/geoip2](https://packagist.org/packages/geoip2/geoip2) v3.x
+
 ## Installation
 
 ### Step 1: Download the Bundle
 
 ``` bash
-composer require cravler/maxmind-geoip-bundle:2.x-dev
+composer require klkvsk/maxmind-geoip-bundle:2.x-dev
 ```
 
 This command requires you to have Composer installed globally, as explained

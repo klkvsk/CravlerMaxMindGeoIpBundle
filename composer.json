@@ -1,5 +1,5 @@
 {
-    "name": "cravler/maxmind-geoip-bundle",
+    "name": "klkvsk/maxmind-geoip-bundle",
     "description": "Bundle integrating MaxMind GeoIP2 database into symfony application",
     "type": "symfony-bundle",
     "keywords": [
@@ -13,21 +13,26 @@
             "name": "Sergei Vizel",
             "email": "sergei.vizel@gmail.com",
             "homepage": "http://github.com/cravler"
+        },
+        {
+            "name": "Mike Kulakovsky",
+            "email": "mike@kulakovs.ky",
+            "homepage": "http://github.com/klkvsk"
         }
     ],
     "require": {
         "php": ">=7.4",
-        "geoip2/geoip2": "^2.0",
+        "geoip2/geoip2": "^2.0|^3.0",
         "symfony/console": "^5.4|^6.0",
-        "symfony/dependency-injection": "^5.4|^6.0",
-        "symfony/framework-bundle": "^5.4|^6.0"
+        "symfony/dependency-injection": "^5.4|^6.0|^7.0",
+        "symfony/framework-bundle": "^5.4|^6.0|^7.0"
     },
     "autoload": {
         "psr-4": { "Cravler\\MaxMindGeoIpBundle\\": "" }
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.x-dev"
+            "dev-master": "3.x-dev"
         },
         "modera-module": {
             "register-bundle": "Cravler\\MaxMindGeoIpBundle\\CravlerMaxMindGeoIpBundle",
