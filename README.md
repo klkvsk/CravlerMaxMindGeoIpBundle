@@ -10,7 +10,7 @@ Added:
 ### Step 1: Download the Bundle
 
 ``` bash
-composer require klkvsk/maxmind-geoip-bundle:2.x-dev
+composer require klkvsk/maxmind-geoip-bundle
 ```
 
 This command requires you to have Composer installed globally, as explained
