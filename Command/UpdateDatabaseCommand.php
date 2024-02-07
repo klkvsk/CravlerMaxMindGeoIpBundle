@@ -30,6 +30,16 @@ class UpdateDatabaseCommand extends Command
         $this->config = $config;
     }
 
+    public static function getDefaultName(): ?string
+    {
+        return self::$defaultName;
+    }
+
+    public static function getDefaultDescription(): ?string
+    {
+        return self::$defaultDescription;
+    }
+
     /**
      * {@inheritdoc}
      */
